@@ -15,7 +15,7 @@ public class GoogleBooksClient {
     private static final String BASE_URL = "https://www.googleapis.com/books/v1/volumes";
     private final HttpClient httpClient = HttpClient.newHttpClient();
     private final ObjectMapper objectMapper = new ObjectMapper();
-    String key = "AIzaSyCslvrJPLrGe9dsyWFsz-M9gNJRsmbW2w8";
+
     public JsonNode searchBooks(String title, String author) throws IOException, InterruptedException {
 
         String uri = BASE_URL +
