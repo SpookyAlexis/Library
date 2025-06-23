@@ -3,10 +3,12 @@ package com.bin.library.tools;
 import com.bin.library.entities.Book;
 import com.bin.library.entities.BookGenre;
 import com.fasterxml.jackson.databind.JsonNode;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.text.SimpleDateFormat;
 
+@Component
 public class BookMapper {
 
     public static Book fromJson(JsonNode item) {

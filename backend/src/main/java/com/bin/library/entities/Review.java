@@ -19,12 +19,21 @@ public class Review {
     @JoinColumn(name = "user_id")
     User user;
 
+    public Review() {
+    }
     public Review(Float rating, String comment, Book book,User user) {
         this.rating = rating;
         this.comment = comment;
         this.book = book;
         this.user = user;
     }
+
+    public Review(Float rate, String comment, Book book) {
+        this.rating = rate;
+        this.comment = comment;
+        this.book = book;
+    }
+
 
     public Float getRating() {
         return rating;

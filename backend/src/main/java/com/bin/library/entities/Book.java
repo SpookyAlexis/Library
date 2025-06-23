@@ -2,6 +2,7 @@ package com.bin.library.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -19,13 +20,13 @@ public class Book {
     @Column(length = 20000)
     private String description;
     private String coverUrl;
-    @OneToMany
-    List<Review> reviews;
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     @CollectionTable(name = "book_types", joinColumns = @JoinColumn(name = "book_id"))
     @Column(name = "type")
     List<BookGenre> bookGenres;
+    @ManyToMany
+    List<Review> reviews = new ArrayList<>();
 
 
     public Book(Date publicationDate, String title, String author, List<BookGenre> bookGenres,

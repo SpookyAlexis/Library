@@ -4,11 +4,9 @@ import com.bin.library.dto.BookDTO;
 import com.bin.library.entities.Book;
 import com.bin.library.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,6 +23,11 @@ public class BookController {
     @GetMapping("/books")
     List<BookDTO> getAllBooks(){
         return bookService.getAllBooks();
+    }
+
+    @GetMapping("/books/search")
+    Book getAllBooks(@RequestParam String title,@RequestParam String author) throws IOException, InterruptedException {
+        return bookService.getBookByTitleAndAuthor(title,author);
     }
 
 
